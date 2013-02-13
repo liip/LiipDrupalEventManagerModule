@@ -1,0 +1,58 @@
+{
+    "name": "liip/eventmanagermodule",
+    "description": "Event manager to enhance the Drupal hook system (actually use it for you custom events instead of the hook system)",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "type": "drupal-module",
+    "keywords": [ "Drupal", "event handler", "subject observer pattern", "Drupal 7", "ood", "testing", "tdd", "software quality", "loose coupling"],
+
+    "authors": [
+        {
+            "name": "Bastian Feder",
+            "email": "bastian.feder@liip.ch",
+            "role": "maintainer"
+        },
+        {
+            "name": "Patrick Jezek",
+            "email": "patrick.jezek@liip.ch",
+            "role": "maintainer"
+        }
+    ],
+
+    "config": {
+        "github-protocols": ["https", "http", "git"]
+    },
+
+    "autoload": {
+        "psr-0": {
+            "Liip\\Drupal\\Modules\\EventManager": "src"
+        }
+    },
+
+    "repositories": [
+        {
+            "type": "vcs",
+            "url" : "git@gitlab.liip.ch:liipdrupalregistrymodule.git"
+        }
+    ],
+
+    "require": {
+        "php": ">=5.3.8,<5.4",
+        "liip/drupalconnectormodule": "dev-master",
+        "beberlei/assert": "dev-master",
+        "liip/drupalregistrymodule": "dev-master"
+    },
+
+    "require-dev": {
+        "lapistano/proxy-object": "dev-master"
+    },
+
+    "extra": {
+        "installer-paths": {
+            "vendor/liip/{$name}": [
+                "liip/drupalconnectormodule",
+                "liip/drupalregistrymodule"
+            ]
+        }
+    }
+}

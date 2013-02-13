@@ -1,0 +1,8 @@
+name = Liip Drupal Event Management Module
+description = This module provides an event management API where one can register events when triggered a set of callbacks will be invoked.
+core = 7.x
+package = Liip Drupal Modules
+
+php = 5.3
+
+dependencies[] = LiipDrupalRegistryModule

@@ -1,0 +1,124 @@
+<?php
+use Assert\Assertion;
+use Liip\Drupal\Modules\DrupalConnector\ConnectorFactory;
+use Liip\Drupal\Modules\EventManager\EventManagerException;
+use Liip\Drupal\Modules\EventManager\EventObserverInterface;
+use Liip\Drupal\Modules\EventManager\EventSubjectInterface;
+use Liip\Drupal\Modules\EventManager\Registry\D7Config\EventSubjects;
+use Liip\Drupal\Modules\EventManager\SubjectFactory;
+
+/**
+ * @param string $path
+ * @param array  $arg
+ *
+ * @return null|string
+ */
+function EventManager_help($path, $arg)
+{
+    if ('admin/help#EventManager' == $path) {
+
+        return t('EVENT_MANAGER_MODULE_HELP');
+    }
+}
+
+/**
+ * @return array
+ *
+ * @link http://api.drupal.org/api/drupal/modules!system!system.api.php/function/hook_menu/7
+ */
+function EventManager_menu()
+{
+    $items = array();
+
+    $items['event/trigger/%'] = array(
+        'page callback' => 'EventManager_trigger',
+        'page arguments' => array(2),
+        'access arguments' => array('access content'),
+    );
+
+    return $items;
+}
+
+/**
+ * @param string $event
+ *
+ * @throws EventMangerException::TRIGGER_FAILED
+ */
+function EventManager_trigger($eventName)
+{
+    if ('post' != strtolower($_SERVER['REQUEST_METHOD'])) {
+        throw new EventManagerException(
+            EventManagerException::TRIGGER_UNSUPPORTED_HTTP_METHOD_TEXT,
+            EventManagerException::TRIGGER_UNSUPPORTED_HTTP_METHOD_CODE
+        );
+    }
+
+    try {
+        $assertion = new Assertion();
+
+        $factory = new SubjectFactory(
+            new EventSubjects(
+                ConnectorFactory::getCommonConnector(),
+                $assertion
+            ),
+            $assertion
+        );
+
+        $subject = EventManager_getSubject($eventName, $factory);
+        $subject->setData($_POST);
+        $subject->notify();
+
+    } catch (\Exception $e) {
+        throw new EventManagerException(
+            EventManagerException::TRIGGER_FAILED_TEXT,
+            EventManagerException::TRIGGER_FAILED_CODE,
+            $e
+        );
+    }
+}
+
+/**
+ * Generates a new Subject to register observers to.
+ *
+ * @param string $name
+ * @param netmigrosintranet\modules\EventManager\Classes\SubjectFactory $factory
+ *
+ * @return netmigrosintranet\modules\EventManager\Classes\EventSubject
+ */
+function EventManager_getSubject($name, SubjectFactory $factory)
+{
+    /** @var \netmigrosintranet\modules\EventManager\Classes\EventSubject $subject  */
+    return $factory->getSubject($name);
+}
+
+/**
+ * Registers the given observer to the given subject
+ *
+ * @param \netmigrosintranet\modules\EventManager\Classes\EventObserverInterface $observer
+ * @param \EventSubjectInterface $subject
+ */
+function EventManager_attachObserver(EventObserverInterface $observer, EventSubjectInterface $subject)
+{
+    $subject->attach($observer);
+}
+
+/**
+ * Removes the given observer from the given subject.
+ *
+ * @param \netmigrosintranet\modules\EventManager\Classes\EventObserverInterface $observer
+ * @param \EventSubjectInterface $subject
+ */
+function EventManager_detachObserver(EventObserverInterface $observer, EventSubjectInterface $subject)
+{
+    $subject->detach($observer);
+}
+
+/**
+ * Notifies every observer registered to the given subject.
+ *
+ * @param \EventSubjectInterface $subject
+ */
+function EventManager_notifyObservers(EventSubjectInterface $subject)
+{
+    $subject->notify();
+}

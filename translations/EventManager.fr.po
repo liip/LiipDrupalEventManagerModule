@@ -1,0 +1,8 @@
+msgid "Failed to trigger event!"
+msgstr "FR: Das angestoßene Ereignis konnte nicht erfolgreich ausgeführt werden."
+
+msgid "The used Http method is not supported."
+msgstr "FR: Die genutzte Http-Methode ist nicht unterstützt."
+
+msgid "Unknown subject requested"
+msgstr "FR: Das angefragte Ereignis-Subjekt wurde nicht gefunden."
