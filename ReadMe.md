@@ -4,7 +4,7 @@ This module is done to get rid of the Drupal hook system; at least for custom ev
 
 ## Current Travis Status
 
-[![Build Status](https://secure.travis-ci.org/liip/drupaleventmanagermodule.png?branch=master)](http://travis-ci.org/liip/drupaleventmanagermodule)
+[![Build Status](https://travis-ci.org/liip/LiipDrupalEventManagerModule.png?branch=master)](https://travis-ci.org/liip/LiipDrupalEventManagerModule)
 
 ## Installation
 The source is now PSR-0 compatible. There is no specific installation routine to be followed. Just clone or checkout the source into to your project
