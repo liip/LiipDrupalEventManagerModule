@@ -29,13 +29,6 @@
         }
     },
 
-    "repositories": [
-        {
-            "type": "vcs",
-            "url" : "git@gitlab.liip.ch:liipdrupalregistrymodule.git"
-        }
-    ],
-
     "require": {
         "php": ">=5.3.8,<5.4",
         "liip/drupalconnectormodule": "dev-master",
