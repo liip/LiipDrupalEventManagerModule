@@ -76,6 +76,12 @@ class SubjectFactoryTest extends EventManagerTestCase
      */
     public function testFetchSubjectsFromRegistrationResetRegistryItemValue()
     {
+        $connectorFactory = $this->getDrupalConnectorFactoryMock(array('getCommonConnector'));
+        $connectorFactory
+            ->staticExpects($this->once())
+            ->method('getCommonConnector')
+            ->will($this->returnValue($this->getDrupalCommonConnectorMock()));
+
         $registry = $this->getRegistryFake();
         $registry
             ->expects($this->once())
@@ -90,7 +96,10 @@ class SubjectFactoryTest extends EventManagerTestCase
                 $registry,
                 new Assertion()
             ))
+            ->setProperties(array('connectorFactory'))
             ->getProxy();
+
+        $factory->connectorFactory = $connectorFactory;
 
         $factory->fetchSubjectsFromRegistry('Tux');
 

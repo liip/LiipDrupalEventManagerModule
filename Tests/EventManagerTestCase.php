@@ -3,6 +3,7 @@
 namespace Liip\Drupal\Modules\EventManager;
 
 use lapistano\ProxyObject\ProxyBuilder;
+use Liip\Drupal\Modules\DrupalConnector\ConnectorFactory;
 
 class EventManagerTestCase extends \PHPUnit_Framework_Testcase
 {
@@ -15,6 +16,19 @@ class EventManagerTestCase extends \PHPUnit_Framework_Testcase
     protected function getDrupalCommonConnectorMock(array $methods = array())
     {
         return $this->getMockBuilder('\\Liip\\Drupal\\Modules\\DrupalConnector\\Common')
+            ->setMethods($methods)
+            ->getMock();
+    }
+
+     /**
+     * Provides a stub for the Factory class of the DrupalConnector Module.
+     *
+     * @param array $methods
+     * @return \PHPUnit_Framework_MockObject_MockObject|ConnectorFactory
+     */
+    protected function getDrupalConnectorFactoryMock(array $methods = array())
+    {
+        return $this->getMockBuilder('\\Liip\\Drupal\\Modules\\DrupalConnector\\ConnectorFactory')
             ->setMethods($methods)
             ->getMock();
     }
