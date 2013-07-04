@@ -18,7 +18,7 @@ Add the following lines to your `composer.json` file and update your project's c
 ```json
 {
     "require": {
-       "liip/liipdrupaleventmanagermodule": "dev-master"
+       "liip/drupaleventmanagermodule": "dev-master"
     }
 }
 ```
@@ -35,13 +35,13 @@ Thus I recommend the composer way to make LiipDrupalEventManagerModule a depende
 The sources are also available via github. Just clone it as you might be familiar with.
 
 ```bash
-$ git clone git://github.com/liip/drupaleventmanagermodule.git
+$ git clone git@github.com:liip/LiipDrupalEventManagerModule.git
 ```
 
 ## Dependencies
 
-- LiipDrupalConnector (http://github.com/liip/liipdrupalconnector)
-- LiipDrupalRegistryModul (http://github.com/liip/liipdrupalregistrymodule)
+- LiipDrupalConnector (https://github.com/liip/LiipDrupalConnectorModule)
+- LiipDrupalRegistryModul (https://github.com/liip/LiipDrupalRegistryModule)
 - Assert (http://github.com/beberlei/assert)
+- ProxyObject for dev purposes (https://github.com/lapistano/ProxyObject)
 
-##
