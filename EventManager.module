@@ -17,11 +17,13 @@ function EventManager_help($path, $arg)
 {
     if ('admin/help#EventManager' == $path) {
 
-        return t('EVENT_MANAGER_MODULE_HELP');
+        return ConnectorFactory::getCommonConnector()->t('EVENT_MANAGER_MODULE_HELP');
     }
 }
 
 /**
+ * Defines the routes for the module.
+ *
  * @return array
  *
  * @link http://api.drupal.org/api/drupal/modules!system!system.api.php/function/hook_menu/7
@@ -40,9 +42,11 @@ function EventManager_menu()
 }
 
 /**
- * @param string $event
+ * Triggers the event the argument refers to.
  *
- * @throws EventMangerException::TRIGGER_FAILED
+ * @param string $eventName
+ *
+ * @throws Liip\Drupal\Modules\EventManager\EventManagerException
  */
 function EventManager_trigger($eventName)
 {
@@ -78,24 +82,23 @@ function EventManager_trigger($eventName)
 }
 
 /**
- * Generates a new Subject to register observers to.
+ * Provides a Subject to register Observers to.
  *
  * @param string $name
- * @param netmigrosintranet\modules\EventManager\Classes\SubjectFactory $factory
+ * @param \Liip\Drupal\Modules\EventManager\SubjectFactory $factory
  *
- * @return netmigrosintranet\modules\EventManager\Classes\EventSubject
+ * @return \Liip\Drupal\Modules\EventManager\EventSubject
  */
 function EventManager_getSubject($name, SubjectFactory $factory)
 {
-    /** @var \netmigrosintranet\modules\EventManager\Classes\EventSubject $subject  */
     return $factory->getSubject($name);
 }
 
 /**
  * Registers the given observer to the given subject
  *
- * @param \netmigrosintranet\modules\EventManager\Classes\EventObserverInterface $observer
- * @param \EventSubjectInterface $subject
+ * @param EventObserverInterface $observer
+ * @param EventSubjectInterface $subject
  */
 function EventManager_attachObserver(EventObserverInterface $observer, EventSubjectInterface $subject)
 {
@@ -105,8 +108,8 @@ function EventManager_attachObserver(EventObserverInterface $observer, EventSubj
 /**
  * Removes the given observer from the given subject.
  *
- * @param \netmigrosintranet\modules\EventManager\Classes\EventObserverInterface $observer
- * @param \EventSubjectInterface $subject
+ * @param EventObserverInterface $observer
+ * @param EventSubjectInterface $subject
  */
 function EventManager_detachObserver(EventObserverInterface $observer, EventSubjectInterface $subject)
 {
@@ -116,7 +119,7 @@ function EventManager_detachObserver(EventObserverInterface $observer, EventSubj
 /**
  * Notifies every observer registered to the given subject.
  *
- * @param \EventSubjectInterface $subject
+ * @param EventSubjectInterface $subject
  */
 function EventManager_notifyObservers(EventSubjectInterface $subject)
 {

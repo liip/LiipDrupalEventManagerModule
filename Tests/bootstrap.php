@@ -2,6 +2,14 @@
 
 $moduleDir =  dirname(__DIR__);
 
+if (!defined('WATCHDOG_ERROR')) {
+    define('WATCHDOG_ERROR', 3);
+}
+
+if (!defined('WATCHDOG_NOTICE')) {
+    define('WATCHDOG_NOTICE', 5);
+}
+
 if (file_exists($moduleDir . "/vendor/autoload.php")) {
 
     $loader = require_once $moduleDir . "/vendor/autoload.php";

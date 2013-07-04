@@ -3,11 +3,13 @@ namespace Liip\Drupal\Modules\EventManager;
 
 use Assert\Assertion;
 use Assert\InvalidArgumentException;
+use Liip\Drupal\Modules\DrupalConnector\ConnectorFactory;
 use Liip\Drupal\Modules\Registry\RegistryException;
 use Liip\Drupal\Modules\Registry\RegistryInterface;
 
 class SubjectFactory
-{   /**
+{
+    /**
      * @var EventSubject[]
      */
     protected $subjects;
@@ -21,6 +23,11 @@ class SubjectFactory
      * @var \Assert\Assertion
      */
     protected $assertions;
+
+    /**
+     * @var \Liip\Drupal\Modules\DrupalConnector\ConnectorFactory;
+     */
+    protected $connectorFactory;
 
 
     /**
@@ -77,7 +84,14 @@ class SubjectFactory
             }
 
         } catch (RegistryException $re) {
-//      TODO: watchdog
+            $this->getDrupalConnectorFactory()
+                ->getCommonConnector()
+                ->watchdog(
+                'Liip Drupal Event Manager',
+                $re->getMessage(),
+                array(),
+                WATCHDOG_ERROR
+            );
         }
     }
 
@@ -97,9 +111,30 @@ class SubjectFactory
             );
 
         } catch (InvalidArgumentException $e) {
-//      TODO: add watchdog
+            $this->getDrupalConnectorFactory()
+                ->getCommonConnector()
+                ->watchdog(
+                    'Liip Drupal Event Manager',
+                    $e->getMessage(),
+                    array(),
+                    WATCHDOG_ERROR
+                );
 
             $this->subjects[$name] = null;
         }
+    }
+
+    /**
+     * Provides an instance to the connector factory.
+     *
+     * @return ConnectorFactory
+     */
+    protected function getDrupalConnectorFactory()
+    {
+        if (empty($this->connectorFactory)) {
+            $this->connectorFactory = new ConnectorFactory();
+        }
+
+        return $this->connectorFactory;
     }
 }

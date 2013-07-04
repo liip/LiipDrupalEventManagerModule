@@ -1,5 +1,5 @@
 {
-    "name": "liip/eventmanagermodule",
+    "name": "liip/drupaleventmanagermodule",
     "description": "Event manager to enhance the Drupal hook system (actually use it for you custom events instead of the hook system)",
     "license": "MIT",
     "minimum-stability": "dev",
