@@ -12,7 +12,7 @@ class EventManagerTest extends EventManagerTestCase
             ->getMockForAbstractClass();
     }
 
-    public function testEventManager_getSubject()
+    public function testDrupalEventManagerModule_getSubject()
     {
         $factory = $this->getMockBuilder('\\Liip\\Drupal\\Modules\\EventManager\\SubjectFactory')
             ->disableOriginalConstructor()
@@ -23,12 +23,12 @@ class EventManagerTest extends EventManagerTestCase
             ->method('getSubject')
             ->will($this->returnValue($this->getSubjectFake()));
 
-        $subject = EventManager_getSubject('Tux', $factory);
+        $subject = drupaleventmanagermodule_getSubject('Tux', $factory);
 
         $this->assertInstanceOf('\\Liip\\Drupal\\Modules\\EventManager\\EventSubjectInterface', $subject);
     }
 
-    public function testEventManager_attachObserver()
+    public function testDrupalEventManagerModule_attachObserver()
     {
         $observer = $this->getObserverMock();
         $subject = $this->getSubjectFake();
@@ -39,10 +39,10 @@ class EventManagerTest extends EventManagerTestCase
                 $this->isInstanceOf('\\Liip\\Drupal\\Modules\\EventManager\\EventObserverInterface')
             );
 
-        EventManager_attachObserver($observer, $subject);
+        drupaleventmanagermodule_attachObserver($observer, $subject);
     }
 
-    public function testEventManager_detachObserver()
+    public function testDrupalEventManagerModule_detachObserver()
     {
         $observer = $this->getObserverMock();
         $subject = $this->getSubjectFake();
@@ -53,16 +53,16 @@ class EventManagerTest extends EventManagerTestCase
                 $this->isInstanceOf('\\Liip\\Drupal\\Modules\\EventManager\\EventObserverInterface')
             );
 
-        EventManager_detachObserver($observer, $subject);
+        drupaleventmanagermodule_detachObserver($observer, $subject);
     }
 
-    public function testEventManager_notifyObservers()
+    public function testDrupalEventManagerModule_notifyObservers()
     {
         $subject = $this->getSubjectFake();
         $subject
             ->expects($this->once())
             ->method('notify');
 
-        EventManager_notifyObservers($subject);
+        drupaleventmanagermodule_notifyObservers($subject);
     }
 }

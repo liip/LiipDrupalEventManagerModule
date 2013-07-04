@@ -13,9 +13,9 @@ use Liip\Drupal\Modules\EventManager\SubjectFactory;
  *
  * @return null|string
  */
-function EventManager_help($path, $arg)
+function drupaleventmanagermodule_help($path, $arg)
 {
-    if ('admin/help#EventManager' == $path) {
+    if ('admin/help#drupaleventmanagermodule' == $path) {
 
         return ConnectorFactory::getCommonConnector()->t('EVENT_MANAGER_MODULE_HELP');
     }
@@ -28,12 +28,12 @@ function EventManager_help($path, $arg)
  *
  * @link http://api.drupal.org/api/drupal/modules!system!system.api.php/function/hook_menu/7
  */
-function EventManager_menu()
+function drupaleventmanagermodule_menu()
 {
     $items = array();
 
     $items['event/trigger/%'] = array(
-        'page callback' => 'EventManager_trigger',
+        'page callback' => 'drupaleventmanagermodule_trigger',
         'page arguments' => array(2),
         'access arguments' => array('access content'),
     );
@@ -48,7 +48,7 @@ function EventManager_menu()
  *
  * @throws Liip\Drupal\Modules\EventManager\EventManagerException
  */
-function EventManager_trigger($eventName)
+function drupaleventmanagermodule_trigger($eventName)
 {
     if ('post' != strtolower($_SERVER['REQUEST_METHOD'])) {
         throw new EventManagerException(
@@ -68,7 +68,7 @@ function EventManager_trigger($eventName)
             $assertion
         );
 
-        $subject = EventManager_getSubject($eventName, $factory);
+        $subject = drupaleventmanagermodule_getSubject($eventName, $factory);
         $subject->setData($_POST);
         $subject->notify();
 
@@ -89,7 +89,7 @@ function EventManager_trigger($eventName)
  *
  * @return \Liip\Drupal\Modules\EventManager\EventSubject
  */
-function EventManager_getSubject($name, SubjectFactory $factory)
+function drupaleventmanagermodule_getSubject($name, SubjectFactory $factory)
 {
     return $factory->getSubject($name);
 }
@@ -100,7 +100,7 @@ function EventManager_getSubject($name, SubjectFactory $factory)
  * @param EventObserverInterface $observer
  * @param EventSubjectInterface $subject
  */
-function EventManager_attachObserver(EventObserverInterface $observer, EventSubjectInterface $subject)
+function drupaleventmanagermodule_attachObserver(EventObserverInterface $observer, EventSubjectInterface $subject)
 {
     $subject->attach($observer);
 }
@@ -111,7 +111,7 @@ function EventManager_attachObserver(EventObserverInterface $observer, EventSubj
  * @param EventObserverInterface $observer
  * @param EventSubjectInterface $subject
  */
-function EventManager_detachObserver(EventObserverInterface $observer, EventSubjectInterface $subject)
+function drupaleventmanagermodule_detachObserver(EventObserverInterface $observer, EventSubjectInterface $subject)
 {
     $subject->detach($observer);
 }
@@ -121,7 +121,7 @@ function EventManager_detachObserver(EventObserverInterface $observer, EventSubj
  *
  * @param EventSubjectInterface $subject
  */
-function EventManager_notifyObservers(EventSubjectInterface $subject)
+function drupaleventmanagermodule_notifyObservers(EventSubjectInterface $subject)
 {
     $subject->notify();
 }

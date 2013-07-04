@@ -23,7 +23,9 @@ if (file_exists($moduleDir . "/vendor/autoload.php")) {
     );
 }
 
-$loader->addClassMap(array("Liip\\Drupal\\Modules\\EventManager\\EventManagerTestCase" => $moduleDir . '/Tests/EventManagerTestCase.php'));
+$loader->addClassMap(array(
+    "Liip\\Drupal\\Modules\\EventManager\\EventManagerTestCase" => $moduleDir . '/Tests/EventManagerTestCase.php'
+));
 
 // unfortunately procedural stuff is not supported by composer autoloader
-require_once($moduleDir . '/EventManager.module');
+require_once($moduleDir . '/drupaleventmanagermodule.module');

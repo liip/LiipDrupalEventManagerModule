@@ -3,7 +3,7 @@
 namespace Liip\Drupal\Modules\EventManager;
 
 use Assert\Assertion;
-use Assert\InvalidArgumentException;
+use Liip\Drupal\Modules\Registry\RegistryException;
 
 class SubjectFactoryTest extends EventManagerTestCase
 {
@@ -72,6 +72,47 @@ class SubjectFactoryTest extends EventManagerTestCase
     }
 
     /**
+     * @covers \Liip\Drupal\Modules\EventManager\SubjectFactory::initSubject
+     */
+    public function testInitSubjectExpectingException()
+    {
+        $connectorFactory = $this->getDrupalConnectorFactoryMock(array('getCommonConnector'));
+        $connectorFactory
+            ->staticExpects($this->exactly(2))
+            ->method('getCommonConnector')
+            ->will($this->returnValue($this->getDrupalCommonConnectorMock()));
+
+        $registry = $this->getRegistryFake();
+        $registry
+            ->expects($this->once())
+            ->method('getContent')
+            ->will(
+                $this->returnValue(array('Tux' => ''))
+            );
+        $registry
+            ->expects($this->once())
+            ->method('isRegistered')
+            ->will(
+                $this->throwException(
+                    new RegistryException(RegistryException::DUPLICATE_INITIATION_ATTEMPT_TEXT)
+                )
+            );
+
+        $factory = $this->getProxyBuilder('\\Liip\\Drupal\\Modules\\EventManager\\SubjectFactory')
+            ->setMethods(array('fetchSubjectsFromRegistry'))
+            ->setConstructorArgs(array(
+                $registry,
+                new Assertion()
+            ))
+            ->setProperties(array('connectorFactory'))
+            ->getProxy();
+
+        $factory->connectorFactory = $connectorFactory;
+        $factory->initSubject('Tux');
+
+    }
+
+    /**
      * @covers \Liip\Drupal\Modules\EventManager\SubjectFactory::fetchSubjectsFromRegistry
      */
     public function testFetchSubjectsFromRegistrationResetRegistryItemValue()
@@ -104,5 +145,23 @@ class SubjectFactoryTest extends EventManagerTestCase
         $factory->fetchSubjectsFromRegistry('Tux');
 
         $this->assertAttributeInternalType('array', 'subjects', $factory);
+    }
+
+    /**
+     * @covers \Liip\Drupal\Modules\EventManager\SubjectFactory::getDrupalConnectorFactory
+     */
+    public function testGetDrupalConnectorFactory()
+    {
+        $factory = $this->getProxyBuilder('\\Liip\\Drupal\\Modules\\EventManager\\SubjectFactory')
+            ->setMethods(array('getDrupalConnectorFactory'))
+            ->setConstructorArgs(array(
+                $this->getRegistryFake(),
+                new Assertion()
+            ))
+            ->getProxy();
+
+        $actual = $factory->getDrupalConnectorFactory();
+        $this->assertInstanceOf('\\Liip\\Drupal\\Modules\\DrupalConnector\\ConnectorFactory', $actual);
+        $this->assertSame($actual, $factory->getDrupalConnectorFactory());
     }
 }
