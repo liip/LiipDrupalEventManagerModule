@@ -83,7 +83,7 @@
                 {
                     "name": "Kyle Robinson Young",
                     "email": "kyle@dontkry.com",
-                    "homepage": "https://github.com/shama",
+                    "homepage": "http://dontkry.com",
                     "role": "Developer"
                 }
             ],
@@ -368,7 +368,7 @@
             "authors": [
                 {
                     "name": "Bastian Feder",
-                    "email": "php@bastian-feder.de",
+                    "email": "lapis@bastian-feder.de",
                     "homepage": "http://blog.bastian-feder.de"
                 }
             ],
