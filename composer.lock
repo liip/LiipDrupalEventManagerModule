@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "6950233f955f266004bb4ce213721678",
+    "hash": "104061725cad0af3cedbce3deb884972",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -11,12 +11,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/beberlei/assert.git",
-                "reference": "013f35be4add813dc52ef1ad4657a1e503c23add"
+                "reference": "11a44345da7b33634be0f6c0e0507755e936a738"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/beberlei/assert/zipball/013f35be4add813dc52ef1ad4657a1e503c23add",
-                "reference": "013f35be4add813dc52ef1ad4657a1e503c23add",
+                "url": "https://api.github.com/repos/beberlei/assert/zipball/11a44345da7b33634be0f6c0e0507755e936a738",
+                "reference": "11a44345da7b33634be0f6c0e0507755e936a738",
                 "shasum": ""
             },
             "require": {
@@ -44,7 +44,7 @@
                 "assertion",
                 "validation"
             ],
-            "time": "2013-07-03 08:51:09"
+            "time": "2013-07-24 16:58:55"
         },
         {
             "name": "composer/installers",
@@ -83,7 +83,7 @@
                 {
                     "name": "Kyle Robinson Young",
                     "email": "kyle@dontkry.com",
-                    "homepage": "http://dontkry.com",
+                    "homepage": "https://github.com/shama",
                     "role": "Developer"
                 }
             ],
@@ -116,17 +116,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/liip/LiipDrupalConnectorModule.git",
-                "reference": "2f1483935f599ab668bb21f6ebe0f9d34db898e5"
+                "reference": "5525c694b9534835f9f6c87166dd946a604c2b7a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/liip/LiipDrupalConnectorModule/zipball/2f1483935f599ab668bb21f6ebe0f9d34db898e5",
-                "reference": "2f1483935f599ab668bb21f6ebe0f9d34db898e5",
+                "url": "https://api.github.com/repos/liip/LiipDrupalConnectorModule/zipball/5525c694b9534835f9f6c87166dd946a604c2b7a",
+                "reference": "5525c694b9534835f9f6c87166dd946a604c2b7a",
                 "shasum": ""
             },
             "require": {
                 "composer/installers": "v1.0.0",
-                "php": ">=5.3,<5.4"
+                "php": ">=5.3"
             },
             "type": "drupal-module",
             "autoload": {
@@ -161,7 +161,7 @@
                 "software quality",
                 "testing"
             ],
-            "time": "2013-06-12 09:12:32"
+            "time": "2013-08-20 13:45:50"
         },
         {
             "name": "liip/drupalregistrymodule",
@@ -169,17 +169,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/liip/LiipDrupalRegistryModule.git",
-                "reference": "cb00abe552d0a8dd3cc531a14c9be6b626e9f44c"
+                "reference": "v2.0.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/liip/LiipDrupalRegistryModule/zipball/cb00abe552d0a8dd3cc531a14c9be6b626e9f44c",
-                "reference": "cb00abe552d0a8dd3cc531a14c9be6b626e9f44c",
+                "url": "https://api.github.com/repos/liip/LiipDrupalRegistryModule/zipball/v2.0.2",
+                "reference": "v2.0.2",
                 "shasum": ""
             },
             "require": {
                 "beberlei/assert": "dev-master",
                 "liip/drupalconnectormodule": "dev-master",
+                "liip/registryadaptor": "dev-master",
                 "php": ">=5.3.8,<5.4",
                 "ruflin/elastica": "0.20.5.0.RC1"
             },
@@ -193,7 +194,8 @@
             "extra": {
                 "installer-paths": {
                     "vendor/liip/{$name}": [
-                        "liip/drupalconnectormodule"
+                        "liip/drupalconnectormodule",
+                        "liip/registryadaptor"
                     ]
                 }
             },
@@ -229,7 +231,61 @@
                 "registry",
                 "software quality"
             ],
-            "time": "2013-07-03 13:37:55"
+            "time": "2013-08-19 07:49:31"
+        },
+        {
+            "name": "liip/registryadaptor",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/liip/LiipRegistryAdaptor.git",
+                "reference": "84106842ebbe9cc3dbd9d6a0114142b05bcb7913"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/liip/LiipRegistryAdaptor/zipball/84106842ebbe9cc3dbd9d6a0114142b05bcb7913",
+                "reference": "84106842ebbe9cc3dbd9d6a0114142b05bcb7913",
+                "shasum": ""
+            },
+            "require": {
+                "beberlei/assert": "dev-master",
+                "php": ">=5.3.8,<5.4",
+                "ruflin/elastica": "0.20.5.0.RC1"
+            },
+            "require-dev": {
+                "lapistano/proxy-object": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Liip\\Registry\\Adaptor": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bastian Feder",
+                    "email": "bastian.feder@liip.ch",
+                    "role": "maintainer"
+                },
+                {
+                    "name": "Patrick Jezek",
+                    "email": "patrick.jezek@liip.ch",
+                    "role": "maintainer"
+                }
+            ],
+            "description": "This library extension provides a set of adaptors to the LiipDrupalRegistryModule.",
+            "keywords": [
+                "elasticsearch",
+                "loose coupling",
+                "ood",
+                "registry",
+                "software quality"
+            ],
+            "time": "2013-08-15 09:44:37"
         },
         {
             "name": "ruflin/elastica",
@@ -312,7 +368,7 @@
             "authors": [
                 {
                     "name": "Bastian Feder",
-                    "email": "lapis@bastian-feder.de",
+                    "email": "php@bastian-feder.de",
                     "homepage": "http://blog.bastian-feder.de"
                 }
             ],
@@ -337,7 +393,7 @@
         "lapistano/proxy-object": 20
     },
     "platform": {
-        "php": ">=5.3.8,<5.4"
+        "php": ">=5.3.8"
     },
     "platform-dev": [
 
