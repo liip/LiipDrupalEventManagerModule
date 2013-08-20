@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "9bee3a63bd189ac673652c308b9aa4bb",
+    "hash": "104061725cad0af3cedbce3deb884972",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -393,7 +393,7 @@
         "lapistano/proxy-object": 20
     },
     "platform": {
-        "php": ">=5.3.8,<5.4"
+        "php": ">=5.3.8"
     },
     "platform-dev": [
 
