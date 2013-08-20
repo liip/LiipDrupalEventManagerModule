@@ -10,10 +10,9 @@ class EventSubjectsTest extends EventManagerTestCase
      */
     public function test__construct()
     {
-        $dcc = $this->getDrupalCommonConnectorFixture();
-        $assertions = $this->getAssertionObjectMock(array('string', 'notEmpty'));
+        $assertions = $this->getAssertionObjectMock();
 
-        $typ = new EventSubjects($dcc, $assertions);
+        $typ = new EventSubjects($assertions);
 
         $this->assertFalse($typ->isRegistered('Tux'));
     }
