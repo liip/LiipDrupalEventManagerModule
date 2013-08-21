@@ -5,5 +5,5 @@ package = Liip Drupal Modules
 
 php = 5.3
 
-dependencies[] = Registry
-dependencies[] = LiipDrupalConnectorModule
+dependencies[] = drupalregistrymodule
+dependencies[] = drupalconnectormodule
