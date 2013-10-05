@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<phpunit
+        bootstrap="Tests/bootstrap.php"
+        strict="true"
+        stopOnError="true"
+        color="true"
+        forceCoversAnnotation="true"
+        convertErrorsToExceptions="true"
+        convertNoticesToExceptions="true"
+        convertWarningsToExceptions="true"
+        >
+
+    <testsuites>
+        <testsuite name="com.Mit Event Manager Module Test Suite">
+            <directory suffix="Test.php">./Tests</directory>
+        </testsuite>
+    </testsuites>
+
+    <logging>
+        <log type="coverage-clover" target="build/logs/clover.xml"/>
+    </logging>
+
+    <filter>
+        <whitelist>
+            <directory>.</directory>
+            <exclude>
+                <file>*.info</file>
+                <file>*.module</file>
+                
+                <!--makes no sense to test no operation implementations-->
+                <file>src/Liip/Drupal/Modules/EventManager/Observers/Noop.php</file>
+                <file>src/Liip/Drupal/Modules/EventManager/Subjects/Noop.php</file>
+
+                <directory>Tests</directory>
+                <directory>build</directory>
+                <directory>vendor</directory>
+                <directory>translations</directory>
+            </exclude>
+        </whitelist>
+    </filter>
+
+</phpunit>

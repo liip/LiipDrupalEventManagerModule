@@ -13,6 +13,7 @@ class EventSubjectsTest extends EventManagerTestCase
         $assertions = $this->getAssertionObjectMock();
 
         $typ = new EventSubjects($assertions);
+        $typ->setDrupalCommonConnector($this->getDrupalCommonConnectorFixture());
 
         $this->assertFalse($typ->isRegistered('Tux'));
     }
