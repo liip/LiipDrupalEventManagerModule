@@ -27,6 +27,10 @@
             <exclude>
                 <file>*.info</file>
                 <file>*.module</file>
+                
+                <!--makes no sense to test no operation implementations-->
+                <file>src/Liip/Drupal/Modules/EventManager/Observers/Noop.php</file>
+                <file>src/Liip/Drupal/Modules/EventManager/Subjects/Noop.php</file>
 
                 <directory>Tests</directory>
                 <directory>build</directory>
