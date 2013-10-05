@@ -12,4 +12,4 @@ before_script:
   - phpunit -c travis.phpunit.xml
 
 after_script:
-  - php vendor/bin/coveralls -vvv --dry-run --exclude-no-stmt
+  - php vendor/bin/coveralls -vvv --exclude-no-stmt
