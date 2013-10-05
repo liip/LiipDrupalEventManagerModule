@@ -17,4 +17,23 @@
         </testsuite>
     </testsuites>
 
+    <logging>
+        <log type="coverage-clover" target="build/logs/clover.xml"/>
+    </logging>
+
+    <filter>
+        <whitelist>
+            <directory>.</directory>
+            <exclude>
+                <file>*.info</file>
+                <file>*.module</file>
+
+                <directory>Tests</directory>
+                <directory>build</directory>
+                <directory>vendor</directory>
+                <directory>translations</directory>
+            </exclude>
+        </whitelist>
+    </filter>
+
 </phpunit>
