@@ -62,7 +62,6 @@ function drupaleventmanagermodule_trigger($eventName)
 
         $factory = new SubjectFactory(
             new EventSubjects(
-                ConnectorFactory::getCommonConnector(),
                 $assertion
             ),
             $assertion
