@@ -6,6 +6,7 @@ This module is done to get rid of the Drupal hook system; at least for custom ev
 
 [![Build Status](https://travis-ci.org/liip/LiipDrupalEventManagerModule.png?branch=master)](https://travis-ci.org/liip/LiipDrupalEventManagerModule)
 [![Coverage Status](https://coveralls.io/repos/liip/LiipDrupalEventManagerModule/badge.png)](https://coveralls.io/r/liip/LiipDrupalEventManagerModule)
+[![Dependency Status](https://www.versioneye.com/user/projects/52526dbb632bac22ba0000ef/badge.png)](https://www.versioneye.com/user/projects/52526dbb632bac22ba0000ef)
 
 ## Installation
 The source is now PSR-0 compatible. There is no specific installation routine to be followed. Just clone or checkout the source into to your project
