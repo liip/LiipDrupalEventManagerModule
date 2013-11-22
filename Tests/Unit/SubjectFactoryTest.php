@@ -87,7 +87,7 @@ class SubjectFactoryTest extends EventManagerTestCase
             ->expects($this->once())
             ->method('getContent')
             ->will(
-                $this->returnValue(array('Tux' => ''))
+                $this->returnValue(array('Tux' => 'invalid Content'))
             );
         $registry
             ->expects($this->once())
@@ -128,7 +128,7 @@ class SubjectFactoryTest extends EventManagerTestCase
             ->expects($this->once())
             ->method('getContent')
             ->will(
-                $this->returnValue(array('Tux' => ''))
+                $this->returnValue(array('Tux' => 'invalid Content'))
             );
 
         $factory = $this->getProxyBuilder('\\Liip\\Drupal\\Modules\\EventManager\\SubjectFactory')

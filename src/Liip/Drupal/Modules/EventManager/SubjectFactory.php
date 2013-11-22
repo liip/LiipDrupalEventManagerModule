@@ -104,11 +104,14 @@ class SubjectFactory
     {
         try {
             $this->subjects = $this->registry->getContent();
-            $this->assertions->isInstanceOf(
-                $this->subjects[$name],
-                '\\Liip\\Drupal\\Modules\\EventManager\\EventSubjectInterface',
-                'Someone sneaked wrong value in there.. neat!! Will be reset now ;)'
-            );
+
+            if (!empty($this->subjects[$name])) {
+                $this->assertions->isInstanceOf(
+                    $this->subjects[$name],
+                    '\\Liip\\Drupal\\Modules\\EventManager\\EventSubjectInterface',
+                    'Someone sneaked wrong value in there.. neat!! Will be reset now ;)'
+                );
+            }
 
         } catch (InvalidArgumentException $e) {
             $this->getDrupalConnectorFactory()
