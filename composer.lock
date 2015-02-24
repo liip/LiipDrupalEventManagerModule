@@ -178,12 +178,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/liip/LiipDrupalRegistryModule.git",
-                "reference": "e4dd8f5f8142d0d5829fb1f66404179f454fe2c8"
+                "reference": "212d69af7d4d65e1de0c567c841ddcd4741006a0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/liip/LiipDrupalRegistryModule/zipball/e4dd8f5f8142d0d5829fb1f66404179f454fe2c8",
-                "reference": "e4dd8f5f8142d0d5829fb1f66404179f454fe2c8",
+                "url": "https://api.github.com/repos/liip/LiipDrupalRegistryModule/zipball/212d69af7d4d65e1de0c567c841ddcd4741006a0",
+                "reference": "212d69af7d4d65e1de0c567c841ddcd4741006a0",
                 "shasum": ""
             },
             "require": {
@@ -243,7 +243,7 @@
                 "registry",
                 "software quality"
             ],
-            "time": "2015-02-23 16:15:42"
+            "time": "2015-02-24 09:20:32"
         },
         {
             "name": "liip/registryadaptor",
@@ -616,30 +616,30 @@
         },
         {
             "name": "symfony/config",
-            "version": "dev-master",
+            "version": "2.7.x-dev",
             "target-dir": "Symfony/Component/Config",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Config.git",
-                "reference": "92b2461f8dab1b3b1e869024a8ce7de84794e021"
+                "reference": "cef9ca2b53e3ea513f308800c8458801540a05f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Config/zipball/92b2461f8dab1b3b1e869024a8ce7de84794e021",
-                "reference": "92b2461f8dab1b3b1e869024a8ce7de84794e021",
+                "url": "https://api.github.com/repos/symfony/Config/zipball/cef9ca2b53e3ea513f308800c8458801540a05f7",
+                "reference": "cef9ca2b53e3ea513f308800c8458801540a05f7",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.5.9",
-                "symfony/filesystem": "~2.7|~3.0"
+                "php": ">=5.3.9",
+                "symfony/filesystem": "~2.3|~3.0.0"
             },
             "require-dev": {
-                "symfony/phpunit-bridge": "~2.7|~3.0"
+                "symfony/phpunit-bridge": "~2.7|~3.0.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.0-dev"
+                    "dev-master": "2.7-dev"
                 }
             },
             "autoload": {
@@ -663,31 +663,31 @@
             ],
             "description": "Symfony Config Component",
             "homepage": "http://symfony.com",
-            "time": "2015-02-21 14:11:30"
+            "time": "2015-02-21 13:05:27"
         },
         {
             "name": "symfony/console",
-            "version": "dev-master",
+            "version": "2.7.x-dev",
             "target-dir": "Symfony/Component/Console",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Console.git",
-                "reference": "387dd10bbb7d403288d46a40051797e07bc088d2"
+                "reference": "be6d274e452bc6e3016d7d2d725b1e59a58982bb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Console/zipball/387dd10bbb7d403288d46a40051797e07bc088d2",
-                "reference": "387dd10bbb7d403288d46a40051797e07bc088d2",
+                "url": "https://api.github.com/repos/symfony/Console/zipball/be6d274e452bc6e3016d7d2d725b1e59a58982bb",
+                "reference": "be6d274e452bc6e3016d7d2d725b1e59a58982bb",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.5.9"
+                "php": ">=5.3.9"
             },
             "require-dev": {
                 "psr/log": "~1.0",
-                "symfony/event-dispatcher": "~2.7|~3.0",
-                "symfony/phpunit-bridge": "~2.7|~3.0",
-                "symfony/process": "~2.7|~3.0"
+                "symfony/event-dispatcher": "~2.1|~3.0.0",
+                "symfony/phpunit-bridge": "~2.7|~3.0.0",
+                "symfony/process": "~2.1|~3.0.0"
             },
             "suggest": {
                 "psr/log": "For using the console logger",
@@ -697,7 +697,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.0-dev"
+                    "dev-master": "2.7-dev"
                 }
             },
             "autoload": {
@@ -721,7 +721,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "http://symfony.com",
-            "time": "2015-02-21 14:11:30"
+            "time": "2015-02-21 13:05:27"
         },
         {
             "name": "symfony/event-dispatcher",
@@ -784,29 +784,29 @@
         },
         {
             "name": "symfony/filesystem",
-            "version": "dev-master",
+            "version": "2.7.x-dev",
             "target-dir": "Symfony/Component/Filesystem",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Filesystem.git",
-                "reference": "b4ed26d71670ec501614e2ff7c4d10d884ea6b4d"
+                "reference": "d4ae276ad15d0ae17ae07bd8b7de1c5381217283"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Filesystem/zipball/b4ed26d71670ec501614e2ff7c4d10d884ea6b4d",
-                "reference": "b4ed26d71670ec501614e2ff7c4d10d884ea6b4d",
+                "url": "https://api.github.com/repos/symfony/Filesystem/zipball/d4ae276ad15d0ae17ae07bd8b7de1c5381217283",
+                "reference": "d4ae276ad15d0ae17ae07bd8b7de1c5381217283",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.5.9"
+                "php": ">=5.3.9"
             },
             "require-dev": {
-                "symfony/phpunit-bridge": "~2.7|~3.0"
+                "symfony/phpunit-bridge": "~2.7|~3.0.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.0-dev"
+                    "dev-master": "2.7-dev"
                 }
             },
             "autoload": {
@@ -830,33 +830,33 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "http://symfony.com",
-            "time": "2015-02-21 13:23:59"
+            "time": "2015-02-18 10:38:04"
         },
         {
             "name": "symfony/stopwatch",
-            "version": "dev-master",
+            "version": "2.7.x-dev",
             "target-dir": "Symfony/Component/Stopwatch",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Stopwatch.git",
-                "reference": "5f4850b7179e6e0b7807ab9aeee796f79ac314a7"
+                "reference": "6669f15131da84d97851b8398a09d04cd604d223"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Stopwatch/zipball/5f4850b7179e6e0b7807ab9aeee796f79ac314a7",
-                "reference": "5f4850b7179e6e0b7807ab9aeee796f79ac314a7",
+                "url": "https://api.github.com/repos/symfony/Stopwatch/zipball/6669f15131da84d97851b8398a09d04cd604d223",
+                "reference": "6669f15131da84d97851b8398a09d04cd604d223",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.5.9"
+                "php": ">=5.3.9"
             },
             "require-dev": {
-                "symfony/phpunit-bridge": "~2.7|~3.0"
+                "symfony/phpunit-bridge": "~2.7|~3.0.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.0-dev"
+                    "dev-master": "2.7-dev"
                 }
             },
             "autoload": {
@@ -880,33 +880,33 @@
             ],
             "description": "Symfony Stopwatch Component",
             "homepage": "http://symfony.com",
-            "time": "2015-02-21 13:23:59"
+            "time": "2015-02-18 10:38:04"
         },
         {
             "name": "symfony/yaml",
-            "version": "dev-master",
+            "version": "2.7.x-dev",
             "target-dir": "Symfony/Component/Yaml",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Yaml.git",
-                "reference": "afd2e0dec75dbb76de5df220039f6b218dacf967"
+                "reference": "d04b39229628a0cc36ae5616db9c7f6f7119ac8f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Yaml/zipball/afd2e0dec75dbb76de5df220039f6b218dacf967",
-                "reference": "afd2e0dec75dbb76de5df220039f6b218dacf967",
+                "url": "https://api.github.com/repos/symfony/Yaml/zipball/d04b39229628a0cc36ae5616db9c7f6f7119ac8f",
+                "reference": "d04b39229628a0cc36ae5616db9c7f6f7119ac8f",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.5.9"
+                "php": ">=5.3.9"
             },
             "require-dev": {
-                "symfony/phpunit-bridge": "~2.7|~3.0"
+                "symfony/phpunit-bridge": "~2.7|~3.0.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.0-dev"
+                    "dev-master": "2.7-dev"
                 }
             },
             "autoload": {
@@ -930,7 +930,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "http://symfony.com",
-            "time": "2015-02-21 13:23:59"
+            "time": "2015-02-18 10:38:04"
         }
     ],
     "aliases": [],
