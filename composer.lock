@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1e07e1d8a6a957b9779b46a0079368b5",
+    "hash": "dc80bc6c547a3296c36ca203b5b6673b",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -937,7 +937,6 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "liip/drupalconnectormodule": 20,
-        "liip/drupalregistrymodule": 20,
         "lapistano/proxy-object": 20,
         "satooshi/php-coveralls": 20
     },

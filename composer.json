@@ -37,7 +37,7 @@
         "php": ">=5.3.8",
         "liip/drupalconnectormodule": "dev-master",
         "beberlei/assert": "~1.5",
-        "liip/drupalregistrymodule": "1.4.0.x-dev"
+        "liip/drupalregistrymodule": "1.4.*"
     },
 
     "require-dev": {
